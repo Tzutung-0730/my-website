@@ -1,0 +1,28 @@
+/* Home.css */
+.home-container {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 讓容器充滿整個視窗 */
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    word-wrap: break-word; /* 讓標題根據容器寬度換行 */
+}
+
+p {
+    max-width: 1000px; /* 限制段落的最大寬度 */
+}
+
+.flag-icon {
+    margin-right: 10px; /* 設置每個圖標右邊的間距 */
+}
+
+.photo {
+    width: 1000px;  /* 設置圖片寬度 */
+    height: auto;  /* 保持圖片比例 */
+}
