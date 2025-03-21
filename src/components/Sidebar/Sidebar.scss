@@ -1,0 +1,173 @@
+/* Sidebar.scss */
+
+/* 變數 */
+$xs: 559.99px; //max
+$sm: 959.99px; //max
+$md: 1279.99px; //max
+$lg: 1919.99px; //max
+$xl: 1920px; //min
+
+$maxleftWidth: 200px; /* 側邊欄寬度 */
+$minleftWidth: 50px; /* 側邊欄最小寬度 */
+$trans-out: ease-out;
+
+/* 顏色變數 */
+$sidebar-bg: #2c3e50; /* 側邊欄背景顏色 */
+$sidebar-bg-light: #2c3e50c5; /* 側邊欄輕微透明背景顏色 */
+$sidebar-hover-bg: #46617d; /* 側邊欄 hover 背景顏色 */
+$active-bg: #46617d; /* 當前頁面底色 */
+$submenu-bg: #34495e; /* 子選單背景顏色 */
+$submenu-hover-bg: #46617d; /* 子選單 hover 背景顏色 */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: $maxleftWidth; /* 預設隱藏，將它移出螢幕外 */
+    width: $maxleftWidth; /* 側邊欄的正常寬度 */
+    height: 100vh;
+    background-color: $sidebar-bg;
+    transition: left 0.3s ease, width 0.3s ease;
+    color: white;
+    overflow: hidden; /* 防止內容超出側邊欄 */
+    transition: left 0.3s ease, width 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+
+    /* 側邊欄開啟狀態 */
+    &.open {
+        left: 0; /* 側邊欄打開時顯示 */
+        width: $maxleftWidth;
+        box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.3); /* 開啟時的陰影效果 */
+        opacity: 1; /* 完全不透明 */
+        transition: width 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
+        
+        /* 側邊欄開啟時顯示內容 */
+        .sidebar-content {
+            opacity: 1;
+            pointer-events: auto; /* 允許點擊 */
+        }
+    }
+
+    /* 側邊欄關閉狀態 */
+    &.closed {
+        left: 0; /* 當關閉時，仍然保留在螢幕上 */
+        width: $minleftWidth; /* 側邊欄縮小後的寬度 */
+        background-color: $sidebar-bg-light; /* 輕微透明的背景 */
+        opacity: 0.8; /* 當關閉時，設置為輕微透明 */
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2); /* 加入陰影效果 */
+        transition: width 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
+        
+        /* 側邊欄關閉時隱藏內容 */
+        .sidebar-content {
+            opacity: 0;
+            pointer-events: none; /* 禁用點擊 */
+        }
+
+        /* 當側邊欄縮小時，調整內容區域 */
+        + .content {
+            margin-left: $minleftWidth; /* 當側邊欄縮小時，內容區域向右移動 */
+        }
+    }
+
+    /* 側邊欄內容 */
+    .sidebar-content {
+        margin-top: 60px;
+        transition: opacity 0.3s ease;
+    }
+
+    /* 項目列表樣式 */
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        text-align: center;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 100%;
+        
+        &:hover {
+            background-color: $sidebar-hover-bg;
+        }
+
+        &.active {
+            background-color: $active-bg; /* 當前頁面底色 */
+            font-weight: bold; /* 可以加粗顯示 */
+        }
+    }
+
+    /* 子選單樣式 */
+    .submenu {
+        list-style: none;
+        padding: 0;
+        background-color: $submenu-bg; /* 子選單背景顏色 */
+
+        li {
+            font-size: medium;
+        }
+
+        a {
+            &:hover {
+                background-color: $submenu-hover-bg;
+            }
+
+            &.active {
+                background-color: $submenu-hover-bg; /* 當前頁面底色 */
+                font-weight: bold; /* 可以加粗顯示 */
+            }
+        }
+    }
+}
+
+/* 響應式設計：當螢幕寬度小於 $sm 時 */
+@media (max-width: $sm) {
+    .sidebar {
+        left: -$maxleftWidth; /* 預設隱藏側邊欄 */
+
+        /* 當側邊欄打開時，顯示內容 */
+        &.open {
+            width: $maxleftWidth; /* 在小螢幕上側邊欄佔滿全寬 */
+            transition: width 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
+        }
+
+        /* 當側邊欄關閉時，完全隱藏 */
+        &.closed {
+            left: -$maxleftWidth;
+            transition: width 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
+
+            /* 當側邊欄關閉時，內容區域不需要左邊距 */
+            + .content {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+/* 響應式設計：當螢幕寬度在 $md 到 $lg 之間 */
+@media (max-width: $md) and (min-width: $sm) {
+    .sidebar {
+        left: -$maxleftWidth; /* 預設隱藏側邊欄 */
+
+        /* 當側邊欄打開時，顯示內容 */
+        &.open {
+            width: $maxleftWidth; /* 在小螢幕上側邊欄佔滿全寬 */
+            transition: width 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
+        }
+
+        /* 當側邊欄關閉時，完全隱藏 */
+        &.closed {
+            left: 0;
+            transition: width 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
+
+            /* 當側邊欄關閉時，內容區域不需要左邊距 */
+            + .content {
+                margin-left: 0;
+            }
+        }
+    }
+}

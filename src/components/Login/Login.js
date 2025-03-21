@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'; // 用於頁面跳轉
-import './Login.css';
+import './Login.scss';
 
 function Login() {
     const [email, setEmail] = React.useState("");

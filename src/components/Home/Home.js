@@ -1,5 +1,5 @@
 import React from "react";
-import "./Home.css";
+import "./Home.scss";
 import home_image from '../../assets/home_image.png';
 
 function Home() {
@@ -7,7 +7,7 @@ function Home() {
         <div className="home-container">
             <h1>曾紫彤 TZU-TUNG, TSENG</h1>
             <h3>我是一個愛笑也熱愛冒險的人，相信勇敢的人先享受世界！</h3>
-            <img src={home_image} alt="Description" className="photo" />
+            {/* <img src={home_image} alt="Description" className="photo" /> */}
             <p>
                 <span class="flag-icon flag-icon-tw"></span>
                 <span class="flag-icon flag-icon-jp"></span>
