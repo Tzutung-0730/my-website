@@ -1,0 +1,130 @@
+$main-color: #5a8abd;
+$secondary-color: #f9f9f9;
+$hover-color: #b4c6da;
+
+.education-container {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1100px;
+    background-color: $secondary-color;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.sort-btn {
+    background-color: transparent;
+    color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    margin-left: 10px;
+}
+
+.sort-btn:hover {
+    color: $hover-color;
+}
+
+.education-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: $main-color;
+}
+
+.education-table-container {
+    overflow-x: auto;
+}
+
+.education-table {
+    width: 100%;
+    // border-collapse: collapse;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.education-table th, .education-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+}
+
+.education-table th {
+    background-color: $main-color;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.education-table td {
+    color: #555;
+}
+
+.education-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.education-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.education-table td:last-child {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.education-table td[colspan="6"] {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+
+.activities {
+    padding-top: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+}
+
+.activities ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.activities li {
+    list-style-type: disc;
+}
+
+.toggle-btn {
+    padding: 6px 12px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #ddd;
+}
